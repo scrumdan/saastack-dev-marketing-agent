@@ -17,17 +17,17 @@ target_personas: [developer, technical_cofounder]
 
 keywords:
   include:
-    - "platform engineering"
+    - "vibe coding"
     - "SaaS boilerplate"
-    - "devex"
+    - "replacing engineers"
+    - "replacing juniors"
     - "time to market"
-    - "infra as code"
-    - "terraform"
-    - "kubernetes"
-    - "aws cdk"
-    - "rails monolith"
-    - "multi-tenant"
-    - "stripe integration"
+    - "ai tooling"
+    - "founders trying to vibe code"
+    - "productionize"
+    - "product to market"
+    - "start ups"
+    - "scalability"
     - "observability"
   exclude:
     - "airdrop"
