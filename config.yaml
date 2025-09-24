@@ -1,0 +1,44 @@
+product:
+  name: "SaaStack"
+  tagline: "From code to customer in days, not months."
+  key_claims:
+    - "Production-ready SaaS infra templates"
+    - "Auth, payments, observability, CI/CD prewired"
+    - "Opinionated defaults; easy to extend"
+  proof_points:
+    - "Teams rebuilt on SaaStack shipped faster with fewer incidents"
+    - "Best-practice patterns helped scale squads cleanly"
+  links:
+    docs: "https://example.com/docs"
+    github: "https://github.com/your-org/your-repo"
+    demo: "https://example.com/demo"
+
+target_personas: [developer, technical_cofounder]
+
+keywords:
+  include:
+    - "platform engineering"
+    - "SaaS boilerplate"
+    - "devex"
+    - "time to market"
+    - "infra as code"
+    - "terraform"
+    - "kubernetes"
+    - "aws cdk"
+    - "rails monolith"
+    - "multi-tenant"
+    - "stripe integration"
+    - "observability"
+  exclude:
+    - "airdrop"
+    - "MLM"
+
+guardrails:
+  avoid_phrases: ["10x overnight", "revolutionize", "disrupt"]
+  tone: "no hype, concrete examples, code-first"
+
+autopost:
+  enabled: false
+  reddit:
+    allowed_subreddits: ["programming","devops","selfhosted","saas","startups"]
+    min_score: 10
