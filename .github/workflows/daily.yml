@@ -1,0 +1,45 @@
+name: Daily SaaStack Drafts
+
+on:
+  workflow_dispatch: {}          # allow manual runs
+  schedule:
+    - cron: "0 21 * * *"         # 9:00 AM NZST (UTC+12)
+    # If you want 9:00 AM during NZDT (UTC+13), change to: "0 20 * * *"
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - run: pip install -r requirements.txt
+
+      - name: Create .env from secrets
+        run: |
+          {
+            echo "OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }}"
+            # Use ONE of the two Slack methods below:
+
+            # (A) Incoming Webhook (simplest)
+            echo "SLACK_WEBHOOK_URL=${{ secrets.SLACK_WEBHOOK_URL }}"
+
+            # (B) Bot token + channel ID (if you prefer Web API)
+            echo "SLACK_BOT_TOKEN=${{ secrets.SLACK_BOT_TOKEN }}"
+            echo "SLACK_CHANNEL_ID=${{ secrets.SLACK_CHANNEL_ID }}"
+
+            # Optional but helpful: GitHub token increases search API limits
+            echo "GITHUB_TOKEN=${{ secrets.GH_PAT }}"
+
+            # Optional: Reddit read-only (needed if you want Reddit fetches)
+            echo "REDDIT_CLIENT_ID=${{ secrets.REDDIT_CLIENT_ID }}"
+            echo "REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }}"
+            echo "REDDIT_USER_AGENT=saastack-agent/0.1 by u/actions"
+          } > .env
+
+      - name: Run agent
+        run: python run.py
