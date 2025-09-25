@@ -35,6 +35,9 @@ jobs:
             # Optional but helpful: GitHub token increases search API limits
             echo "GITHUB_TOKEN=${{ secrets.GH_PAT }}"
 
+            # NEW: LinkedIn discovery via SerpAPI
+            echo "SERPAPI_KEY=${{ secrets.SERPAPI_KEY }}"
+
             # Optional: Reddit read-only (needed if you want Reddit fetches)
             echo "REDDIT_CLIENT_ID=${{ secrets.REDDIT_CLIENT_ID }}"
             echo "REDDIT_CLIENT_SECRET=${{ secrets.REDDIT_CLIENT_SECRET }}"
